@@ -1,0 +1,25 @@
+#include<iostream>
+#include<map>
+#include<string>
+#include<vector>
+
+class Solution {
+public:
+    int removeDuplicates(std::vector<int>& nums) {
+        int cursor =0;
+        int result = nums.size();
+        for(int i=0;i<nums.size(); ++i){
+           if(nums[cursor] != nums[i]){
+                cursor++;
+           }
+        }
+        return cursor;
+    }
+};
+
+
+int main(){
+    std::vector<int> nums = {0,1,1,1,2,3,4,4,5};
+    Solution solution;
+    std::cout<<solution.removeDuplicates(nums);
+}
