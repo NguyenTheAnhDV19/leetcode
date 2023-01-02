@@ -1,9 +1,3 @@
-#include<iostream>
-#include<map>
-#include<string>
-#include<algorithm>
-#include<vector>
-
 class Solution {
 private:
     bool checkCost(int position, int cost[], int gas[]);
