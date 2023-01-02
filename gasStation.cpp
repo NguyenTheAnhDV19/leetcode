@@ -23,13 +23,13 @@ public:
 bool Solution::checkCost(int position, int cost[], int gas[])
 {
     int remain = 0; int j=-1; int rePos = position;
-    for(int i=0 ;i<=3;i++)
+    for(int i=0 ;i<=sizeof(cost)/sizeof(int);i++)
     {
-        if(rePos <=2)
+        if(rePos <sizeof(cost)/sizeof(int))
         {
             remain += (gas[rePos] - cost[rePos]);
         }else{
-            remain += (gas[rePos-2] - cost[rePos-2]);
+            remain += (gas[rePos-sizeof(cost)/sizeof(int)-1] - cost[rePos-sizeof(cost)/sizeof(int)-1]);
         }
         std::cout<<rePos<<std::endl;
         if(remain<=0) break;
