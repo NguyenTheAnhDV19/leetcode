@@ -1,0 +1,44 @@
+class Solution {
+public:
+    void split_string(std::string s, std::vector<std::string>& sVec)
+    {
+        std::string str;
+        for(int i=0;i<s.size();i++){
+            if(s[i] != ' '){
+                str.push_back(s[i]);
+            }
+            if(s[i] == ' ' || i == s.size()-1){
+                sVec.push_back(str);
+                str.clear();
+            }
+        }
+    }
+
+    bool wordPattern(std::string pattern, std::string s) {
+        std::vector<std::string> sVec;
+        split_string(pattern,sVec);
+        int p_[s.size()]; int s_[s.size()];
+        for(int i=0;i<s.size();i++){
+            p_[i] = i;
+            s_[i] = i;
+        }
+        for(int i=s.size()-1;i>=0;i--){
+            for(int j=i-1;j>=0;j--){
+                if(s[i] == s[j]) s_[i] = s_[j];
+                if(sVec[i] == sVec[j]) p_[i] = p_[j];
+            }
+        }
+        for(int i=0;i<s.size();i++){
+            if(s_[i] != p_[i]) return false;
+        }
+        return true;
+    }
+};
+int main(){
+    std::string pattern = "dog cat cat dog";
+    std::string s = "abba";
+    Solution* solution = new Solution;
+    std::cout<<solution->wordPattern(pattern,s)<<std::endl;
+
+    return 0;
+}
