@@ -1,0 +1,22 @@
+class Solution {
+public:
+    void moveZeroes(std::vector<int>& nums) {
+        for(int i=0;i<nums.size();++i){
+            if(nums[i]==0){
+                nums.push_back(0);
+                nums.erase(nums.begin()+i);
+            }
+        }
+    }
+};
+
+int main(){
+    std::vector<int> nums = {9,6,4,2,3,5,7,0,1};
+    Solution* solution = new Solution();
+    solution->moveZeroes(nums);
+    for(int num : nums){
+        std::cout<<num<<std::endl;
+    }
+
+    return 0;
+}
