@@ -1,0 +1,31 @@
+class Solution {
+public:
+    void countBits(int n,std::vector<int>& nums)
+    {
+        for(int i=0;i<=n;i++)
+        {
+            std::string num = convert(i);
+            int num_return = 0;
+            for(int j=0;j<num.size();j++){
+                num_return += (int)num[j] -48;
+            }
+            nums.push_back(num_return);
+        }
+    }
+
+    std::string convert(int num)
+    {
+        return std::bitset<32>(num).to_string();
+    }
+};
+
+int main(){
+    std::vector<int> nums;
+    Solution* solution = new Solution;
+    solution->countBits(5,nums);
+    for(int i=0;i<nums.size();++i)
+    {
+        std::cout<<nums[i]<<std::endl;
+    }
+    return 0;
+}
