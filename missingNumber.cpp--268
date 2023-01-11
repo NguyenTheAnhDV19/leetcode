@@ -1,0 +1,20 @@
+class Solution {
+public:
+    int missingNumber(std::vector<int>& nums) {
+        int length = nums.size();
+        int number =0;
+        for(int i=1;i<=length;i++){
+            number+=i;
+            number-=nums[i-1];
+        }
+        return number;
+    }
+};
+
+int main(){
+    std::vector<int> nums = {9,6,4,2,3,5,7,0,1};
+    Solution* solution = new Solution();
+    std::cout<<solution->missingNumber(nums)<<std::endl;
+
+    return 0;
+}
