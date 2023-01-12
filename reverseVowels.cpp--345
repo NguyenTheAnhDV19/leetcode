@@ -1,0 +1,25 @@
+class Solution {
+public:
+    void reverseVowels(std::string& s) {
+        std::string temp;
+        for(int i=s.size()-1;i>=0;i--){
+            if(s[i] == 'a' || s[i] == 'e' || s[i] == 'i' || s[i] == 'o' || s[i] == 'u'){
+                temp.push_back(s[i]);
+            }
+        }
+        int index =0;
+        for(int i=0;i<s.size(); i++){
+            if(s[i] == 'a' || s[i] == 'e' || s[i] == 'i' || s[i] == 'o' || s[i] == 'u'){
+                s[i] = temp[index];
+                index++;
+            }
+        }
+    }
+};
+int main(){
+    std::string s = "aeoho";
+    Solution* solution = new Solution;
+    solution->reverseVowels(s);
+    std::cout<<s<<std::endl;
+    return 0;
+}
