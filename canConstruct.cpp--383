@@ -1,0 +1,23 @@
+class Solution {
+public:
+    bool canConstruct(std::string ransomNote, std::string magazine) {
+        std::string temp;
+        for(int i=0;i<ransomNote.size();i++){
+            for(int j=0;j<magazine.size();j++){
+               if(ransomNote[i] == magazine[j]){
+                    temp.push_back(magazine[j]);
+                    magazine.erase(j,1);
+                    break;
+               }
+            }
+        }
+        if(temp.size() == ransomNote.size()) return true;
+        return false;
+    }
+};
+
+int main(){
+    Solution* solution = new Solution;
+    std::cout<<solution->canConstruct("aa","aab");
+    return 0;
+}
