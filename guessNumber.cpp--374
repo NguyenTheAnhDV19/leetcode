@@ -1,0 +1,33 @@
+
+class Solution {
+public:
+    int guessNumber(int n);
+    int guess(int num);
+};
+
+Solution::guess(int num)
+{
+    int numGuess;
+    std::cin>>numGuess;
+    std::cout<<numGuess<<std::endl;
+
+    if(numGuess > num){
+        return -1;
+    }else if(numGuess< num){
+        return 1;
+    }else{
+        return 0;
+    }
+}
+
+Solution::guessNumber(int n)
+{
+    int num = rand() %n;
+    return guess(num);
+}
+
+int main(){
+    Solution* solution = new Solution;
+    std::cout<<solution->guessNumber(10);
+    return 0;
+}
